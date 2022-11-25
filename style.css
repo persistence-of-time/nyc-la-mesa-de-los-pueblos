@@ -21,7 +21,7 @@ You will find this is far easier than the opposite task of using CSS to cram you
 body,
 html {
   /* Sets default font-size to 16px, ensuring 1em = 16px; */
-  font-family: 'Lora', serif;
+  font-family: 'Shippori Mincho', serif;
   font-size: 16px;
 }
 /* Landing heading */
