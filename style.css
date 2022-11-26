@@ -21,7 +21,8 @@ You will find this is far easier than the opposite task of using CSS to cram you
 body,
 html {
   /* Sets default font-size to 16px, ensuring 1em = 16px; */
-  font-family: 'Shippori Mincho', serif;
+  font-family: 'Shippori Mincho', Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Montserrat', Helvetica, sans-serif;
   font-size: 16px;
 }
 /* Landing heading */
@@ -35,40 +36,63 @@ html {
     background-position: center;
   
   }
-  .pg1 h1{
-    background: none;
-    padding: 33px;
+  .pg1 .floatingInfo {
+    max-width: 700px;
     color: #ffff;
-    font-size: 48px;
-    font-weight: 400;
     text-align: left;
+    padding: 33px;
     position: absolute;
     top: 30%;
     left: 15%;
     transform: translate(-5%, -25%);
+
+
+  }
+
+  .pg1 .floatingInfo h1{
+    background: none;
+    font-family: 'Shippori Mincho';
+    font-size: 48px;
+    font-weight: 400;
+    
    
   }
-  .pg1 .byline { 
-    color: #ffff;;
-    padding: 0px 30px;
-    font-size: 22px;
-    font-weight: 200;
-    text-align: left;
-    background: none;
-    border-radius: 50% 15%;
-    position: absolute;
-    top:45%;
-    left: 15%;
-    transform: translate(-15%, -25%);
-  }
-.summary {
-  font-size: 18px;
-  font-weight: 400;
+
+.pg1 .floatingInfo .summary {
+  font-family: 'Shippori Mincho';
   font-style: italic;
-  color: #686868;
-  padding: 5px 0;
+  font-size: 20px;
+  font-weight: 400;
+  padding-right: 16px;
+}
+/** ByLine container*/
+.byline {
+  color: black;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  line-height: 1.5;
 }
 
+
+.byline .byLineCopy {
+  font-weight: 400;
+  letter-spacing: 1px;
+
+}
+
+.byline .byLineAuthor { 
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+}
+
+.byline .publishDate { 
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 1px;
+
+}
 
 /** RESPONSIVE IMAGES */
 figure,
@@ -80,15 +104,21 @@ img {
 }
 
 p {
-  line-height: 1.2em;
+  font-family: 'Shippori Mincho';
+  font-size: 18px;
+  line-height: 1.3em;
 }
 /** Caption styles */
-.caption,
-figcaption {
-  font-size: 0.9rem;
-  color: #8e8a8a;
-  padding: 5px 0;
+
+.caption {
+  margin: 22px 0 8px; /* the padding is not working for some reason */
+  line-height: 1.3;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .6px;
 }
+
 /** BASE CLASSES */
 /** Container styles to keep content from becoming too wide or coming too close to
 * mobile edge */
@@ -103,12 +133,6 @@ figcaption {
   max-width: 1200px;
   padding: 0;
 }
-
-.container.image .caption,
-.container.image figcaption {
-  padding: 5px 10px;
-}
-
 .desktop {
   display: none;
 }
