@@ -132,7 +132,24 @@ p {
 .container.image {
   max-width: 1200px;
   padding: 0;
+  -webkit-filter: brightness(100%);
 }
+
+.container.image .caption,
+.container.image figcaption {
+  padding: 5px 10px;
+}
+
+.collage > .img { 
+  flex-basis: calc(50% - 12px);
+
+}
+.collage > .img:nth-child(1),
+.collage > .img:nth-child(2) { 
+  margin-bottom: 5px;
+}  
+
+
 .desktop {
   display: none;
 }
@@ -220,6 +237,12 @@ p {
 @media (min-width: 769px) {
   /* Any adjustments for desktop and larger go here.
     Note these styles will be applied to anything 769px or larger -- so desktop */
+
+    .collage {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
 }
 /*********************************************************************
   YOUR MEDIUM-DESKTOP-ONLY STYLES GO HERE
