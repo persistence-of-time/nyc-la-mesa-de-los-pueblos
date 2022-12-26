@@ -64,6 +64,7 @@ html {
   font-size: 20px;
   font-weight: 400;
   padding-right: 16px;
+  
 }
 /** ByLine container*/
 .byline {
@@ -119,6 +120,15 @@ p {
   letter-spacing: .6px;
 }
 
+.summary.cap {
+  font-size: .9rem;
+  color: #92a3a7;
+  font-style: italic;
+  display: block;
+  padding: 22px 0;
+  margin: 22 auto;
+}
+
 /** BASE CLASSES */
 /** Container styles to keep content from becoming too wide or coming too close to
 * mobile edge */
@@ -128,9 +138,37 @@ p {
   padding: 10px;
   margin: 0 auto;
 }
+
+/* 2 two column layout for content */
+.two-column-container {
+  max-width: 1440px;
+  padding: 10px;
+  margin: 0 auto;
+}
+.column {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.row > .column { 
+  flex-basis: calc(50% - 12px);
+}
+
+.row > .column:nth-child(1),
+.row > .column:nth-child(2) { 
+  margin-bottom: 5px;
+} 
+
+
 /** Images are allowed to be a little wider when broken out into their own container */
 .container.image {
   max-width: 1200px;
+  padding: 0;
+  -webkit-filter: brightness(100%);
+}
+.container.video {
+  max-width: 1440px;
   padding: 0;
   -webkit-filter: brightness(100%);
 }
@@ -192,21 +230,10 @@ p {
 .video-inner,
 .video-player {
   width: 100%;
-  max-width: 1280px;
-  height: 0;
+  height: 100%;
   padding-bottom: 56.25%;
   position: relative;
   margin: 0 auto;
-}
-
-.can-stick.sticky .video-inner {
-  position: fixed;
-  max-width: 360px;
-  bottom: 0;
-  right: 0;
-  height: auto;
-  padding: 0;
-  transition: all 0.5s ease-in-out;
 }
 
 .video-player iframe {
@@ -217,6 +244,35 @@ p {
   top: 0;
   left: 0;
 }
+
+.videoHero {
+  position: relative;
+}
+
+.videoHero .video-frame {
+  z-index: 1;
+}
+
+.videoHero .video-frame .iframe {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.videoHero .video-frame.active .iframe {
+  opacity: 1
+}
+
+.videoHero .container {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  max-width: 350px;
+  width: 100%;
+  z-index: 2;
+  color: #FFF;
+  transform: translateY(-50%);
+}
+
 /*********************************************************************
   YOUR TABLET/DESKTOP STYLES GO HERE
 *********************************************************************/
@@ -243,7 +299,23 @@ p {
       flex-wrap: wrap;
       justify-content: space-between;
     }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .videoHero {
+      min-height: 175vh;
+    }
+
+    .videoHero .video-frame {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+    }
 }
+
+
 /*********************************************************************
   YOUR MEDIUM-DESKTOP-ONLY STYLES GO HERE
 *********************************************************************/
