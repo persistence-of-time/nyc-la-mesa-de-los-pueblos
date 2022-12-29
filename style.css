@@ -16,6 +16,7 @@ You will find this is far easier than the opposite task of using CSS to cram you
 /** SET BORDER BOX EVERYWHERE */
 * {
   box-sizing: border-box;
+  
 }
 /** APPLY BASE TAG STYLES */
 body,
@@ -30,13 +31,69 @@ html {
 .pg1{
     height: 100vh;
     width: 100%;
-    background: url(images/002-022-r-gg-NyTlan-Web_Ready.jpg)no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+    right: 0;
+    position: relative;
+    background: black;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    z-index: 2;
+    transition: .75s;
   
   }
-  .pg1 .floatingInfo {
+
+  .pg1.active {
+    right: 300px;
+  }
+
+  .pg1 .videoHero{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    overflow: clip;
+    z-index: -2;
+  
+  }
+
+  .toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: url('icons/fa-bars-solid.svg');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: center;
+    cursor: pointer;
+  }
+
+  .toggle.active {
+    background: url('icons/fa-xmark-solid.svg');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: center;
+    cursor: pointer;
+  
+  }
+
+  .pg1 header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+  }
+  .pg1 .hardware {
     max-width: 700px;
     color: #ffff;
     text-align: left;
@@ -49,7 +106,7 @@ html {
 
   }
 
-  .pg1 .floatingInfo h1{
+  .pg1 .hardware h1{
     background: none;
     font-family: 'Shippori Mincho';
     font-size: 48px;
@@ -58,13 +115,31 @@ html {
    
   }
 
-.pg1 .floatingInfo .summary {
+.pg1 .hardware .summary {
   font-family: 'Shippori Mincho';
   font-style: italic;
   font-size: 20px;
   font-weight: 400;
   padding-right: 16px;
   
+}
+
+.hardware a {
+  display: inline-block;
+  font-size: 1em;
+  background: #ffff;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: black;
+  margin-top: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.hardware a:hover {
+  letter-spacing: 2px;
 }
 /** ByLine container*/
 .byline {
@@ -73,7 +148,6 @@ html {
   font-size: 16px;
   line-height: 1.5;
 }
-
 
 .byline .byLineCopy {
   font-weight: 400;
@@ -129,6 +203,34 @@ p {
   margin: 22 auto;
 }
 
+.sections {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.sections ul {
+  position: relative;
+  list-style: none;
+}
+
+.sections ul li a {
+  text-decoration: none;
+  font-size: 24px;
+  color: black;
+}
+
+.sections ul li a:hover {
+  color: rgba(247, 37, 133);
+  transition:all 0.2s ease;
+}
+
 /** BASE CLASSES */
 /** Container styles to keep content from becoming too wide or coming too close to
 * mobile edge */
@@ -160,15 +262,9 @@ p {
   margin-bottom: 5px;
 } 
 
-
 /** Images are allowed to be a little wider when broken out into their own container */
 .container.image {
   max-width: 1200px;
-  padding: 0;
-  -webkit-filter: brightness(100%);
-}
-.container.video {
-  max-width: 1440px;
   padding: 0;
   -webkit-filter: brightness(100%);
 }
@@ -226,51 +322,9 @@ p {
   border: 0;
 }
 
-.video-frame,
-.video-inner,
-.video-player {
-  width: 100%;
-  height: 100%;
-  padding-bottom: 56.25%;
-  position: relative;
-  margin: 0 auto;
-}
-
-.video-player iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.videoHero {
-  position: relative;
-}
-
-.videoHero .video-frame {
-  z-index: 1;
-}
-
-.videoHero .video-frame .iframe {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.videoHero .video-frame.active .iframe {
-  opacity: 1
-}
-
-.videoHero .container {
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  max-width: 350px;
-  width: 100%;
-  z-index: 2;
-  color: #FFF;
-  transform: translateY(-50%);
+.video-wrapper {
+  max-width: 1200px;
+  padding: 0;
 }
 
 /*********************************************************************
@@ -304,18 +358,8 @@ p {
       flex-wrap: wrap;
       justify-content: space-between;
     }
-    .videoHero {
-      min-height: 175vh;
-    }
-
-    .videoHero .video-frame {
-      position: sticky;
-      position: -webkit-sticky;
-      top: 0;
-    }
+  
 }
-
-
 /*********************************************************************
   YOUR MEDIUM-DESKTOP-ONLY STYLES GO HERE
 *********************************************************************/
