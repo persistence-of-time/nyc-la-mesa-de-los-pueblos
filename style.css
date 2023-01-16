@@ -235,6 +235,14 @@ p {
 /** BASE CLASSES */
 /** Container styles to keep content from becoming too wide or coming too close to
 * mobile edge */
+
+h1{
+  background: none;
+  font-family: 'Montserrat';
+  font-size: 26px;
+  font-weight: 800;
+
+}
 .container {
   width: 100%;
   max-width: 800px;
@@ -349,6 +357,14 @@ p {
   /* Any adjustments for desktop and larger go here.
     Note these styles will be applied to anything 769px or larger -- so desktop */
 
+    h1{
+      background: none;
+      font-family: 'Montserrat';
+      font-size: 30px;
+      font-weight: 800;
+    
+    }
+
     .pg1 .hardware {
       max-width: 700px;
       color: #ffff;
@@ -396,8 +412,9 @@ p {
   
   .hardware a:hover {
     letter-spacing: 2px;
+  }
 
-    .collage {
+  .collage {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
