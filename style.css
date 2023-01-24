@@ -26,6 +26,7 @@ html {
   font-family: 'Montserrat', Helvetica, sans-serif;
   font-size: 16px;
   scroll-behavior: smooth;
+  place-items: center;
 }
 /* Landing heading */
 
@@ -59,6 +60,7 @@ html {
     opacity: 0.8;
     overflow: clip;
     z-index: -2;
+    animation: fadeIn 1s;
   
   }
 
@@ -103,7 +105,7 @@ html {
     top: 30%;
     left: 15%;
     transform: translate(-2%, -15%);
-
+    animation: fadeIn 3s;
 
   }
 
@@ -236,6 +238,11 @@ p {
 /** Container styles to keep content from becoming too wide or coming too close to
 * mobile edge */
 
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+
 h1{
   background: none;
   font-family: 'Montserrat';
@@ -273,9 +280,17 @@ h1{
 
 /** Images are allowed to be a little wider when broken out into their own container */
 .container.image {
-  max-width: 100%;
+  max-width: 900px;
   padding: 0;
-  -webkit-filter: brightness(100%);
+}
+
+.container.slides {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  
 }
 
 .container.image .caption,
@@ -336,6 +351,42 @@ h1{
   margin: 0 auto;
 }
 
+/* Slideshow */
+.slider {
+  display: flex;
+  transition: transform 1s ease;
+}
+
+.slider img {
+  max-width: 100%;
+  margin-right: 10px;
+}
+
+#next,
+#prev {
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  position: absolute;
+  transform: translate(-5%, -50%);
+  cursor: pointer;
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.3));
+
+}
+
+#prev {
+  left: 5%;
+}
+
+#next {
+  right: 5%;
+}
+
+#next.disable,
+#prev.disable {
+  pointer-events: none;
+  opacity: 0.5;
+}
 /*********************************************************************
   YOUR TABLET/DESKTOP STYLES GO HERE
 *********************************************************************/
