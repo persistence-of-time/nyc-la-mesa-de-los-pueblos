@@ -47,7 +47,7 @@ html {
   }
 
   .pg1.active {
-    right: 300px;
+    right: 280px;
   }
 
   .pg1 .videoHero{
@@ -58,7 +58,7 @@ html {
     height: 100%;
     object-fit: cover;
     opacity: 0.8;
-    overflow: clip;
+    overflow: hidden;
     z-index: -2;
     animation: fadeIn 1s;
   
@@ -280,7 +280,7 @@ h1{
 
 /** Images are allowed to be a little wider when broken out into their own container */
 .container.image {
-  max-width: 900px;
+  max-width: 1200px;
   padding: 0;
 }
 
@@ -359,6 +359,7 @@ h1{
 
 .slider img {
   max-width: 100%;
+  border-radius: 11px;
   margin-right: 10px;
 }
 
