@@ -1,1 +1,1 @@
-# nyc-red-de-pueblos-transnacionales
+# nyc-la-mesa-de-los-pueblos
